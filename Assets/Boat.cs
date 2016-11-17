@@ -31,7 +31,7 @@ public class Boat : MonoBehaviour {
                
         turret.transform.rotation = Quaternion.RotateTowards(turret.transform.rotation, t, 50*Time.deltaTime);
 
-        Vector3 pp = turret.transform.rotation * (-Vector3.forward * (target.transform.position - turret.transform.position).magnitude);
+        Vector3 pp = turret.transform.position + turret.transform.rotation * (-Vector3.forward * (target.transform.position - turret.transform.position).magnitude);
         pp.y = target.transform.position.y;
         realTarget.transform.position = pp;
 
